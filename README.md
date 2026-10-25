@@ -48,7 +48,7 @@ git clone https://github.com/MysticGSI/mysticgsi.git && cd mysticgsi
 python setup_host.py
 ```
 
-On macOS, Debian/Ubuntu, Arch and Windows, the script installs system packages and
+On macOS, Debian/Ubuntu, Arch, Fedora and Windows, the script installs system packages and
 creates `.venv`. On NixOS, it checks the development shell. Native image
 tools and the Apktool JAR are bundled with the repository.
 
@@ -90,6 +90,19 @@ python3 -m venv .venv
 ```sh
 sudo pacman -Syu --needed python python-pip curl aria2 openssl patch \
     libarchive jre17-openjdk-headless
+python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+</details>
+
+<details>
+<summary>Fedora and others (RHEL, etc)</summary>
+
+```sh
+sudo dnf update -y
+sudo dnf install -y --skip-unavailable python3 python3-pip curl aria2 openssl patch \
+    ca-certificates libarchive java-openjdk-headless
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 ```
